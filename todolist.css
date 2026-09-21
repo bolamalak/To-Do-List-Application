@@ -1,0 +1,243 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 30px;
+    background: #faf9f9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #202b24;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border: 1px solid #dde3d8;
+    border-left: 4px solid #2f6f5e;
+    border-bottom:4px solid #2f6f5e ;
+    border-radius: 10px;
+    padding: 32px 28px 28px;
+    box-shadow: 20px #101010;
+}
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    font-style:italic;
+    font-size: 30px;
+    margin: 0 0 24px;
+    color: #2b4234;
+}
+
+
+.add-task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 11px 14px;
+    font-size: 15px;
+    font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f4f3f5;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+#taskInput::placeholder {
+    color: #5b6a5e;
+}
+
+#taskInput:focus-visible {
+    border-color: #2f6f5e;
+    box-shadow: 0 0 0 3px rgba(47, 111, 94, 0.15);
+}
+
+#addButton {
+    flex-shrink: 0;
+    padding: 11px 18px;
+    font-size: 0.95rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    color: #fff;
+    background: #2f6f5e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+#addButton:hover {
+    background: #234f43;
+}
+
+#addButton:focus-visible,
+.filter:focus-visible,
+.delete-button:focus-visible {
+    outline: 2px solid #2f6f5e;
+    outline-offset: 2px;
+}
+
+
+.filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #2b4234;
+    padding-bottom: 14px;
+}
+
+.filter {
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #5b6a5e;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.filter:hover {
+    background: #f4f6f2;
+    color: #202b24;
+}
+
+.filter.active {
+    background: #2f6f5e;
+    color: #fff;
+}
+
+
+#taskList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 2px;
+    border-bottom: 1px solid #dde3d8;
+}
+
+.task:last-child {
+    border-bottom: none;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.task-left input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: #2f6f5e;
+    cursor: pointer;
+}
+
+.task-text {
+    font-size: 0.96rem;
+    color: #202b24;
+    overflow-wrap: anywhere;
+}
+
+.task.completed .task-text {
+    color: #5b6a5e;
+    text-decoration: line-through;
+    text-decoration-color: #5b6a5e;
+}
+
+.delete-button {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #b3503f;
+    background: transparent;
+    border: 1px solid #b3503f;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.delete-button:hover {
+    background: #b3503f;
+    color: #fff;
+}
+
+
+
+#emptyMessage {
+    text-align: center;
+    padding: 28px 10px;
+    margin: 0;
+    color: #5b6a5e;
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 24px 12px;
+        align-items: stretch;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 24px 18px 20px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
+
+    .add-task {
+        flex-direction: column;
+    }
+
+    #addButton {
+        width: 100%;
+    }
+
+    .filters {
+        flex-wrap: wrap;
+    }
+
+    .task-text {
+        font-size: 0.92rem;
+    }
+
+    .delete-button {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 340px) {
+    .container {
+        padding: 20px 14px 16px;
+    }
+
+    .task-left {
+        gap: 8px;
+    }
+}
