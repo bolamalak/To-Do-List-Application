@@ -10,9 +10,9 @@ A simple To-Do List application that allows users to manage their tasks.
 - Delete tasks
 - Mark tasks as completed
 - Filter tasks:
-  - All
-  - Active
-  - Completed
+- All
+- Active
+- Completed
 - Save tasks using `localStorage` so they remain after refreshing the page
 - Show an empty-state message when there are no tasks
 
